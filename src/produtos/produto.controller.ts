@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { db } from "../database/banco-mongo.js";
-class UsuarioController {
+class ProdutoController {
     async adicionar(req: Request, res: Response) {
         const {nome,preco,descricao,urlfoto} = req.body;
         const produtos = {nome,preco,descricao,urlfoto}
@@ -12,4 +12,4 @@ class UsuarioController {
         res.status(200).json(produtos);
     }
 }
-export default new UsuarioController();
+export default new ProdutoController();

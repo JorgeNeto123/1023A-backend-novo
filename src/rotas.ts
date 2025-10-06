@@ -1,15 +1,16 @@
-import usuarioController from "./usuarios/usuario.controller.js";
-import produtoController from "./produtos/produto.controller.js";
+import carrinhoController from './carrinhos/carrinho.controller.js';
+
 
 import { Router } from "express";
 
-const rotas = Router();
-rotas.post("/usuarios", usuarioController.adicionar);
-rotas.get("/usuarios", usuarioController.listar);
+const router = Router();
 
-//Ainda vamos ter que criar as rotas para carrinho e produtos
+//criando rotas para os usuários
 
+router.post('/adicionaritem', carrinhoController.adicionarItem);
+router.delete('/removeritem', carrinhoController.removerItem);
+router.get('/listar', carrinhoController.listar);
+router.delete('/removercarrinho', carrinhoController.remover);
+router.post('/atualizarquantidade', carrinhoController.atualizarQuantidade);
 
-rotas.post("/produtos", produtoController.adicionar);
-rotas.get("/produtos", produtoController.listar);
-export default rotas;
+export default router;
